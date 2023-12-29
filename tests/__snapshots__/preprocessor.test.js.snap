@@ -5,13 +5,13 @@ exports[`preprocessor > phosphorSvelteOptimize > should preprocess icon imports 
   "code": "<script>
   import Airplane from \\"phosphor-svelte/lib/Airplane\\";
   import Cube from \\"phosphor-svelte/lib/Cube\\";
-import Rectangle from \\"phosphor-svelte/lib/Rectangle\\";
-import Horse from \\"phosphor-svelte/lib/Horse\\";
+  import Rectangle from \\"phosphor-svelte/lib/Rectangle\\";
+  import Horse from \\"phosphor-svelte/lib/Horse\\";
 </script>
 ",
   "dependencies": [],
   "map": SourceMap {
-    "mappings": "AAAA,CAAC,MAAM,CCAP;AACA;AACA,EAAE;AAAA;AAAA,8CAAyD;ADC3D,CAAC,CAAC,MAAM;",
+    "mappings": "AAAA,CAAC,MAAM,CCAP;AACA;AACA;AAAA;AAAA,gDAA2D;ADC3D,CAAC,CAAC,MAAM;",
     "names": [],
     "sources": [
       "App.svelte",
@@ -27,16 +27,16 @@ exports[`preprocessor > phosphorSvelteOptimize > should preprocess multiple impo
 {
   "code": "<script>
   import Airplane from \\"phosphor-svelte/lib/Airplane\\";
-import Gear from \\"phosphor-svelte/lib/Gear\\";
+  import Gear from \\"phosphor-svelte/lib/Gear\\";
   import Cube from \\"phosphor-svelte/lib/Cube\\";
-import Rectangle from \\"phosphor-svelte/lib/Rectangle\\";
-import Horse from \\"phosphor-svelte/lib/Horse\\";
+  import Rectangle from \\"phosphor-svelte/lib/Rectangle\\";
+  import Horse from \\"phosphor-svelte/lib/Horse\\";
   import X from \\"phosphor-svelte/lib/X\\";
 </script>
 ",
   "dependencies": [],
   "map": SourceMap {
-    "mappings": "AAAA,CAAC,MAAM,CCAP;AACA,EAAE;AAAA,4CAAiD;AACnD,EAAE;AAAA;AAAA,8CAAyD;AAC3D,EAAE,sCAAoC;ADCtC,CAAC,CAAC,MAAM;",
+    "mappings": "AAAA,CAAC,MAAM,CCAP;AACA;AAAA,8CAAmD;AACnD;AAAA;AAAA,gDAA2D;AAC3D,wCAAsC;ADCtC,CAAC,CAAC,MAAM;",
     "names": [],
     "sources": [
       "App.svelte",
@@ -52,13 +52,45 @@ exports[`preprocessor > phosphorSvelteOptimize > should separate type imports 1`
 {
   "code": "<script lang=\\"ts\\">
   import Airplane from \\"phosphor-svelte/lib/Airplane\\";
-import Gear from \\"phosphor-svelte/lib/Gear\\";
-import type { IconContextProps } from \\"phosphor-svelte\\";
+  import Gear from \\"phosphor-svelte/lib/Gear\\";
+  import type { IconContextProps } from \\"phosphor-svelte\\";
 </script>
 ",
   "dependencies": [],
   "map": SourceMap {
-    "mappings": "AAAA,CAAC,MAAM,CAAC,IAAI,CAAC,CAAC,EAAE,CAAC,CCAjB;AACA,EAAE;AAAA;AAAA,wDAAwE;ADC1E,CAAC,CAAC,MAAM;",
+    "mappings": "AAAA,CAAC,MAAM,CAAC,IAAI,CAAC,CAAC,EAAE,CAAC,CCAjB;AACA;AAAA;AAAA,0DAA0E;ADC1E,CAAC,CAAC,MAAM;",
+    "names": [],
+    "sources": [
+      "App.svelte",
+      "",
+    ],
+    "version": 3,
+  },
+  "toString": [Function],
+}
+`;
+
+exports[`preprocessor > should understand different formatting 1`] = `
+{
+  "code": "<script lang=\\"ts\\">
+    import type 
+    { 
+        IconContextProps as IconProps 
+    }	from 'phosphor-svelte';
+  import IceCream from \\"phosphor-svelte/lib/IceCream\\";
+  import FolderNotch from 'phosphor-svelte/lib/FolderNotch';
+  import Flag
+    from 'phosphor-svelte/lib/FlagCheckered';
+  import Foo from \\"phosphor-svelte/lib/IceCream\\";
+  import Gif from \\"phosphor-svelte/lib/Gif\\";
+  import Spooky from \\"phosphor-svelte/lib/Ghost\\";
+  import type { Hourglass } from \\"phosphor-svelte\\";
+  import type { SvelteComponent, ComponentType } from 'svelte';
+</script>
+",
+  "dependencies": [],
+  "map": SourceMap {
+    "mappings": "AAAA,CAAC,MAAM,CAAC,IAAI,CAAC,CAAC,EAAE,CAAC,CCAjB;AACA;AACA;AACA;AACA;AACA,sDAA6C;AAC7C;AACA;AACA;AACA,iDAC+C;AAC/C;AAAA;AAAA,mDAI2B;AAC3B;ADCA,CAAC,CAAC,MAAM;",
     "names": [],
     "sources": [
       "App.svelte",
