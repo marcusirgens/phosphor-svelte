@@ -10,12 +10,12 @@ export function phosphorSvelteOptimize() {
       if (!filename || /node_modules/.test(filename)) return
 
       const re = new RegExp(
-        /import\s*{([\s\S]*?)\s*}\s*from\s*["']phosphor-svelte["']([\s\n]*;)?/g
+        /(?:\n?(?<indent>\s+))?import\s*{(?<imports>[\s\S]*?)\s*}\s*from\s*["']phosphor-svelte["']([\s\n]*;)?/g
       )
 
       let output = new MagicString(content, { filename })
       for (let match of content.matchAll(re)) {
-        const modules = match[1]
+        const modules = match.groups["imports"]
           .trim()
           .replace(/,$/, "")
           .split(",")
@@ -42,10 +42,14 @@ export function phosphorSvelteOptimize() {
           )
         }
 
+        // Indent the contents to match the surrounding imports.
+        // Note that the indent match, if present, starts with a newline character.
+        const toInsert = new MagicString(newImports.join("\n")).indent(match.groups["indent"]);
+
         output.update(
-          match.index,
+          match.index + (!!match.groups["indent"] ? 1 : 0),
           match.index + match[0].length,
-            newImports.join("\n")
+          toInsert.toString()
         )
       }
 

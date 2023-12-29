@@ -60,7 +60,7 @@ describe("preprocessor", () => {
 </script>\n`
       const output = `<script>
   import Airplane from "phosphor-svelte/lib/Airplane";
-import IconGear from "phosphor-svelte/lib/Gear";
+  import IconGear from "phosphor-svelte/lib/Gear";
 </script>\n`
 
       const result = processor.script({ content, filename: "App.svelte" })
@@ -101,8 +101,8 @@ import IconGear from "phosphor-svelte/lib/Gear";
         })
         const output = `<script lang="ts">
     import Airplane from "phosphor-svelte/lib/Airplane";
-import FolderNotch from "phosphor-svelte/lib/FolderNotch";
-import type { Hourglass as HourglassAlias } from "phosphor-svelte";
+    import FolderNotch from "phosphor-svelte/lib/FolderNotch";
+    import type { Hourglass as HourglassAlias } from "phosphor-svelte";
     import Ghost from "phosphor-svelte/lib/Ghost";
   </script>\n`
 
